@@ -29,10 +29,10 @@ public class ApiKeyService {
 
     @Transactional
     public ApiKey generateApiKey(User user, String name) {
-        int activeKeyCount = apiKeyRepository.countByUserAndActiveTrue(user);
-        if (activeKeyCount >= MAX_API_KEYS_PER_USER) {
-            throw new RuntimeException("Maximum number of API keys reached (10)");
-        }
+//        int activeKeyCount = apiKeyRepository.countByUserAndActiveTrue(user);
+//        if (activeKeyCount >= MAX_API_KEYS_PER_USER) {
+//            throw new RuntimeException("Maximum number of API keys reached (10)");
+//        }
 
         ApiKey apiKey = new ApiKey();
         apiKey.setKeyValue(generateUniqueKeyValue());
@@ -64,10 +64,10 @@ public class ApiKeyService {
         String keyValue = "ak_" + Base64.getUrlEncoder().withoutPadding().encodeToString(bytes);
 
         // Ensure the key is unique
-        while (apiKeyRepository.findByKeyValue(keyValue).isPresent()) {
-            random.nextBytes(bytes);
-            keyValue = "ak_" + Base64.getUrlEncoder().withoutPadding().encodeToString(bytes);
-        }
+//        while (apiKeyRepository.findByKeyValue(keyValue).isPresent()) {
+//            random.nextBytes(bytes);
+//            keyValue = "ak_" + Base64.getUrlEncoder().withoutPadding().encodeToString(bytes);
+//        }
 
         return keyValue;
     }

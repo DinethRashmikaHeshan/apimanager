@@ -62,9 +62,9 @@ public class ApiKeyAuthenticationFilter extends OncePerRequestFilter {
             apiUsageService.saveApiUsage(apiUsage);
 
             // Authenticate the user associated with the API key
-            UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
-                    apiKey.getUser(), null, apiKey.getUser().getAuthorities());
-            SecurityContextHolder.getContext().setAuthentication(authToken);
+//            UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
+//                    apiKey.getUser(), null, apiKey.getUser().getAuthorities());
+//            SecurityContextHolder.getContext().setAuthentication(authToken);
         }
 
         filterChain.doFilter(request, response);
