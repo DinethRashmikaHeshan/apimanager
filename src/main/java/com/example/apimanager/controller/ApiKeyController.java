@@ -117,6 +117,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/keys")
+@CrossOrigin
 @SecurityRequirement(name = "BearerAuth") // Requires JWT authentication
 public class ApiKeyController {
     private final ApiKeyService apiKeyService;

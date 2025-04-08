@@ -73,10 +73,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.Data;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.example.apimanager.service.CountryService;
 
@@ -89,6 +86,7 @@ import java.util.Map;
 @RequestMapping("/api/external")
 @SecurityRequirement(name = "ApiKeyAuth") // Requires API key authentication
 @SecurityRequirement(name = "BearerAuth")
+@CrossOrigin
 public class ApiUsageController {
 
     private final CountryService countryService;

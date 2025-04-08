@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  api-manager:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./data:/data
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:sqlite:/data/apimanager.db
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - APP_JWT_SECRET=your-secure-jwt-secret-key-change-this-in-production
+      - APP_JWT_EXPIRATION=86400000
+    restart: unless-stopped

@@ -103,6 +103,7 @@ import java.util.stream.Collectors;
 @RequestMapping("/api/users")
 @PreAuthorize("hasAuthority('ROLE_ADMIN')")
 @SecurityRequirement(name = "BearerAuth") // Requires JWT authentication
+@CrossOrigin
 public class UserController {
     private final UserService userService;
 

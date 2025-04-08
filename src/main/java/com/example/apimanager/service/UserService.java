@@ -27,12 +27,12 @@ public class UserService {
 
     @Transactional
     public User registerUser(User user) {
-        if (userRepository.existsByUsername(user.getUsername())) {
-            throw new RuntimeException("Username already exists");
-        }
-        if (userRepository.existsByEmail(user.getEmail())) {
-            throw new RuntimeException("Email already exists");
-        }
+//        if (userRepository.existsByUsername(user.getUsername())) {
+//            throw new RuntimeException("Username already exists");
+//        }
+//        if (userRepository.existsByEmail(user.getEmail())) {
+//            throw new RuntimeException("Email already exists");
+//        }
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
