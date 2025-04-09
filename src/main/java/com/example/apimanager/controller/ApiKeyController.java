@@ -101,6 +101,7 @@
 package com.example.apimanager.controller;
 
 import com.example.apimanager.model.ApiKey;
+import com.example.apimanager.model.ApiUsage;
 import com.example.apimanager.model.User;
 import com.example.apimanager.service.ApiKeyService;
 import com.example.apimanager.service.ApiUsageService;
@@ -181,6 +182,7 @@ public class ApiKeyController {
         response.setCreatedAt(apiKey.getCreatedAt().toString());
         response.setLastUsed(apiKey.getLastUsed() != null ? apiKey.getLastUsed().toString() : null);
         response.setActive(apiKey.isActive());
+        response.setUsages(apiKey.getUsages().stream().count());
         return response;
     }
 
@@ -197,6 +199,7 @@ public class ApiKeyController {
         private String createdAt;
         private String lastUsed;
         private boolean active;
+        private long usages;
     }
 
     @Data
